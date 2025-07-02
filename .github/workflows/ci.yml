@@ -1,5 +1,3 @@
-# .github/workflows/ci.yml
-
 name: CI Pipeline
 
 on:
@@ -22,3 +20,7 @@ jobs:
 
       - name: Run Tests in Docker
         run: docker run python-ci-app
+
+      - name: Run Lint (flake8)
+        run: |
+          docker run python-ci-app sh -c "pip install flake8 && flake8 app.py"
